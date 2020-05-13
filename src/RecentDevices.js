@@ -6,8 +6,8 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import Title from './Title';
 import { Button } from '@material-ui/core';
-// import Title from './Title';
 
 // Generate Order Data
 function createData(id, name, category, status) {
@@ -15,20 +15,14 @@ function createData(id, name, category, status) {
 }
 
 const rows = [
-    createData(0, 'Door', 'Lock', 'active'),
-    createData(1, 'Window', 'Lock', 'active'),
-    createData(2, 'Lamp', 'Light', 'disabled'),
+    createData(0, 'Kitchen Door', 'Lock', 'active'),
+    createData(1, 'Living room Window', 'Lock', 'active'),
+    createData(2, 'Kitchen Lamp', 'Light', 'disabled'),
 ];
 
-const rows1 = [
-    createData(0, 'Door', 'Lock', 'active'),
-    createData(1, 'Window', 'Lock', 'active'),
-    createData(2, 'Lamp', 'Light', 'disabled'),
-];
-
-// function preventDefault(event) {
-//     event.preventDefault();
-// }
+function preventDefault(event) {
+    event.preventDefault();
+}
 
 const useStyles = makeStyles((theme) => ({
     seeMore: {
@@ -36,17 +30,18 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Rooms() {
+export default function RecentDevices() {
     const classes = useStyles();
     return (
         <React.Fragment>
+            <Title>Recent devices</Title>
             <Table size="small">
                 <TableHead>
                     <TableRow>
                         <TableCell>Name</TableCell>
                         <TableCell>Category</TableCell>
                         <TableCell>Status</TableCell>
-                        <TableCell><Button>disable all</Button></TableCell>
+                        <TableCell></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -60,6 +55,11 @@ export default function Rooms() {
                     ))}
                 </TableBody>
             </Table>
+            <div className={classes.seeMore}>
+                <Link color="primary" href="#" onClick={preventDefault}>
+                    See more devices
+                </Link>
+            </div>
         </React.Fragment>
     );
 }

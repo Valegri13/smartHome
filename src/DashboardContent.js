@@ -2,7 +2,8 @@ import React from 'react';
 import { makeStyles, Container, Grid, Paper } from '@material-ui/core';
 import clsx from 'clsx';
 import Deposits from './Deposits';
-import Orders from './Orders';
+
+import RecentDevices from './RecentDevices';
 
 const drawerWidth = 240
 const useStyles = makeStyles((theme) => ({
@@ -100,10 +101,10 @@ export function DashboardContent() {
 							<Deposits />
 						</Paper>
 					</Grid>
-					{/* Recent Orders */}
+					{/* Recent devices */}
 					<Grid item xs={12}>
 						<Paper className={classes.paper}>
-							<Orders />
+							<RecentDevices />
 						</Paper>
 					</Grid>
 				</Grid>

@@ -126,11 +126,11 @@ export default function RoomsPage() {
                     {/* Devices */}
                     <Grid item xs={12}>
                         <Paper className={classes.paper}>
-                            <Title>Rooms</Title>
+                            <Title>Living Room</Title>
                             <Rooms />
                         </Paper>
                         <Paper className={classes.paper} style={{ marginTop: "2%" }}>
-                            <Title>Room 1</Title>
+                            <Title>Kitchen</Title>
                             <Rooms />
                         </Paper>
                     </Grid>
