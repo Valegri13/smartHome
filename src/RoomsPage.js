@@ -8,6 +8,8 @@ import Paper from '@material-ui/core/Paper';
 import Rooms from './Rooms';
 import Title from './Title';
 import Button from '@material-ui/core/Button'
+import Dialog from './AddDeviceButton'
+import AddRoomButton from './AddRoomButton'
 
 
 
@@ -125,7 +127,9 @@ export default function RoomsPage() {
             <div className={classes.appBarSpacer} />
             <Container maxWidth="lg" className={classes.container}>
                 <Grid container spacing={3}>
-                    <Button variant="contained" color="primary">Add room</Button>
+                    <Grid item xs={3}>
+                        <AddRoomButton />
+                    </Grid>
                     {/* Devices */}
                     <Grid item xs={12}>
                         <Paper className={classes.paper}>
@@ -133,7 +137,7 @@ export default function RoomsPage() {
                                 <Title>
                                     <Typography variant='h5' align='left'>Living Room</Typography>
                                 </Title>
-                                <Button variant='contained' color="primary">Add device</Button>
+                                <Dialog />
                             </Grid>
                             <Rooms rows={rows} />
                         </Paper>
@@ -142,7 +146,7 @@ export default function RoomsPage() {
                                 <Title>
                                     <Typography variant='h5' align='left'>Kitchen</Typography>
                                 </Title>
-                                <Button variant='contained' color="primary">Add device</Button>
+                                <Dialog />
                             </Grid>
                             <Rooms rows={rows1} />
                         </Paper>
