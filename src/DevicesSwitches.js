@@ -7,7 +7,11 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import Switch from '@material-ui/core/Switch';
-import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
+import WifiIcon from '@material-ui/icons/Wifi';
+import TvIcon from '@material-ui/icons/Tv';
+import SpeakerIcon from '@material-ui/icons/Speaker';
+import GamesIcon from '@material-ui/icons/Games';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -19,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SwitchListSecondary() {
     const classes = useStyles();
-    const [checked, setChecked] = React.useState(['lights', 'light1', 'light2', 'light3', 'light4']);
+    const [checked, setChecked] = React.useState(['devswitch']);
 
     const handleToggle = (value) => () => {
         const currentIndex = checked.indexOf(value);
@@ -35,67 +39,67 @@ export default function SwitchListSecondary() {
     };
 
     return (
-        <List subheader={<ListSubheader>Lights
+        <List subheader={<ListSubheader>Devices
             <Switch
                 edge="end"
-                onChange={handleToggle('lights')}
-                checked={checked.indexOf('lights') !== -1}
-                inputProps={{ 'aria-labelledby': 'switch-list-label-lights' }}
+                onChange={handleToggle('devswitch')}
+                checked={checked.indexOf('devswitch') !== -1}
+                inputProps={{ 'aria-labelledby': 'switch-list-label-devswitch' }}
             />
         </ListSubheader>} className={classes.root}>
             <ListItem>
                 <ListItemIcon>
-                    <EmojiObjectsIcon />
+                    <WifiIcon />
                 </ListItemIcon>
-                <ListItemText id="switch-list-label-light1" primary="Lamp1" />
+                <ListItemText id="switch-list-label-wifi" primary="Wi-Fi Router" />
                 <ListItemSecondaryAction>
                     <Switch
                         edge="end"
-                        onChange={handleToggle('light1')}
-                        checked={checked.indexOf('light1') !== -1}
-                        inputProps={{ 'aria-labelledby': 'switch-list-label-light1' }}
+                        onChange={handleToggle('wifi')}
+                        checked={checked.indexOf('wifi') !== -1}
+                        inputProps={{ 'aria-labelledby': 'switch-list-label-wifi' }}
                     />
                 </ListItemSecondaryAction>
             </ListItem>
             <ListItem>
                 <ListItemIcon>
-                    <EmojiObjectsIcon />
+                    <TvIcon />
                 </ListItemIcon>
-                <ListItemText id="switch-list-label-light2" primary="Lamp2" />
+                <ListItemText id="switch-list-label-tv" primary="TV" />
                 <ListItemSecondaryAction>
                     <Switch
                         edge="end"
-                        onChange={handleToggle('light2')}
-                        checked={checked.indexOf('light2') !== -1}
-                        inputProps={{ 'aria-labelledby': 'switch-list-label-light2' }}
+                        onChange={handleToggle('tv')}
+                        checked={checked.indexOf('tv') !== -1}
+                        inputProps={{ 'aria-labelledby': 'switch-list-label-tv' }}
                     />
                 </ListItemSecondaryAction>
             </ListItem>
             <ListItem>
                 <ListItemIcon>
-                    <EmojiObjectsIcon />
+                    <SpeakerIcon />
                 </ListItemIcon>
-                <ListItemText id="switch-list-label-light3" primary="Lamp3" />
+                <ListItemText id="switch-list-label-speaker" primary="Speakers" />
                 <ListItemSecondaryAction>
                     <Switch
                         edge="end"
-                        onChange={handleToggle('light3')}
-                        checked={checked.indexOf('light3') !== -1}
-                        inputProps={{ 'aria-labelledby': 'switch-list-label-light3' }}
+                        onChange={handleToggle('speaker')}
+                        checked={checked.indexOf('speaker') !== -1}
+                        inputProps={{ 'aria-labelledby': 'switch-list-label-speaker' }}
                     />
                 </ListItemSecondaryAction>
             </ListItem>
             <ListItem>
                 <ListItemIcon>
-                    <EmojiObjectsIcon />
+                    <GamesIcon />
                 </ListItemIcon>
-                <ListItemText id="switch-list-label-light4" primary="Lamp4" />
+                <ListItemText id="switch-list-label-ps4" primary="Playstation 4" />
                 <ListItemSecondaryAction>
                     <Switch
                         edge="end"
-                        onChange={handleToggle('light4')}
-                        checked={checked.indexOf('light4') !== -1}
-                        inputProps={{ 'aria-labelledby': 'switch-list-label-light4' }}
+                        onChange={handleToggle('ps4')}
+                        checked={checked.indexOf('ps4') !== -1}
+                        inputProps={{ 'aria-labelledby': 'switch-list-label-ps4' }}
                     />
                 </ListItemSecondaryAction>
             </ListItem>

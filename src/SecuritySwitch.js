@@ -8,7 +8,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import Switch from '@material-ui/core/Switch';
 import LockIcon from '@material-ui/icons/Lock';
-
+import ApartmentIcon from '@material-ui/icons/Apartment';
+import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
+import HomeIcon from '@material-ui/icons/Home';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -20,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SwitchListSecondary() {
     const classes = useStyles();
-    const [checked, setChecked] = React.useState(['security']);
+    const [checked, setChecked] = React.useState(['security', 'kwindow', 'lrwindow', 'entrancedoor', 'garagedoor']);
 
     const handleToggle = (value) => () => {
         const currentIndex = checked.indexOf(value);
@@ -28,32 +30,76 @@ export default function SwitchListSecondary() {
 
         if (currentIndex === -1) {
             newChecked.push(value);
-            alert("Security ON")
-        } else {
+        }
+        else {
             newChecked.splice(currentIndex, 1);
-            alert("Security OFF")
         }
 
         setChecked(newChecked);
     };
 
     return (
-        <List subheader={<ListSubheader>Security</ListSubheader>} className={classes.root}>
+        <List subheader={<ListSubheader>Security
+            <Switch
+                edge="end" onChange={handleToggle('security')}
+                checked={checked.indexOf('security') !== -1}
+                inputProps={{ 'aria-labelledby': 'switch-list-label-security' }} /></ListSubheader>} className={classes.root}>
             <ListItem>
                 <ListItemIcon>
-                    <LockIcon />
+                    <ApartmentIcon />
                 </ListItemIcon>
-                <ListItemText id="switch-list-label-security" primary="Security" />
+                <ListItemText id="switch-list-label-kwindow" primary="Kitchen window" />
                 <ListItemSecondaryAction>
                     <Switch
                         edge="end"
-                        onChange={handleToggle('security')}
-                        checked={checked.indexOf('security') !== -1}
-                        inputProps={{ 'aria-labelledby': 'switch-list-label-security' }}
+                        onChange={handleToggle('kwindow')}
+                        checked={checked.indexOf('kwindow') !== -1}
+                        inputProps={{ 'aria-labelledby': 'switch-list-label-kwindow' }}
                     />
                 </ListItemSecondaryAction>
             </ListItem>
-
+            <ListItem>
+                <ListItemIcon>
+                    <ApartmentIcon />
+                </ListItemIcon>
+                <ListItemText id="switch-list-label-lrwindow" primary="LivingRoom window" />
+                <ListItemSecondaryAction>
+                    <Switch
+                        edge="end"
+                        onChange={handleToggle('lrwindow')}
+                        checked={checked.indexOf('lrwindow') !== -1}
+                        inputProps={{ 'aria-labelledby': 'switch-list-label-lrwindow' }}
+                    />
+                </ListItemSecondaryAction>
+            </ListItem>
+            <ListItem>
+                <ListItemIcon>
+                    <MeetingRoomIcon />
+                </ListItemIcon>
+                <ListItemText id="switch-list-label-entrancedoor" primary="Entrance door" />
+                <ListItemSecondaryAction>
+                    <Switch
+                        edge="end"
+                        onChange={handleToggle('entrancedoor')}
+                        checked={checked.indexOf('entrancedoor') !== -1}
+                        inputProps={{ 'aria-labelledby': 'switch-list-label-entrancedoor' }}
+                    />
+                </ListItemSecondaryAction>
+            </ListItem>
+            <ListItem>
+                <ListItemIcon>
+                    <HomeIcon />
+                </ListItemIcon>
+                <ListItemText id="switch-list-label-garagedoor" primary="Garage door" />
+                <ListItemSecondaryAction>
+                    <Switch
+                        edge="end"
+                        onChange={handleToggle('garagedoor')}
+                        checked={checked.indexOf('garagedoor') !== -1}
+                        inputProps={{ 'aria-labelledby': 'switch-list-label-garagedoor' }}
+                    />
+                </ListItemSecondaryAction>
+            </ListItem>
         </List>
     );
 }

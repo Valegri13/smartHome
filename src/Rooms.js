@@ -9,22 +9,22 @@ import { Button } from '@material-ui/core';
 import Switch from '@material-ui/core/Switch';
 
 // Generate Order Data
-function createData(id, name, category, status) {
-    return { id, name, category, status };
-}
+// function createData(id, name, category, status) {
+//     return { id, name, category, status };
+// }
 
-const rows = [
-    createData(0, 'Door', 'Lock', 'active'),
-    createData(1, 'Window', 'Lock', 'active'),
-    createData(2, 'Lamp', 'Light', 'disabled'),
-];
+// const rows = [
+//     createData(0, 'Door', 'Lock', 'active'),
+//     createData(1, 'Window', 'Lock', 'active'),
+//     createData(2, 'Lamp', 'Light', 'disabled'),
+// ];
 
 
-const rows1 = [
-    createData(0, 'Door', 'Lock', 'active'),
-    createData(1, 'Window', 'Lock', 'active'),
-    createData(2, 'Lamp', 'Light', 'disabled'),
-];
+// const rows1 = [
+//     createData(0, 'Door', 'Lock', 'active'),
+//     createData(1, 'Window', 'Lock', 'active'),
+//     createData(2, '213421', 'Lock', 'disabled'),
+// ];
 
 // function preventDefault(event) {
 //     event.preventDefault();
@@ -36,12 +36,12 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Rooms() {
+export default function Rooms(props) {
     const classes = useStyles();
     return (
         <React.Fragment>
             <Table size="small">
-                <TableHead align="right"><Button>Add device</Button>
+                <TableHead align="right">
                     <TableRow>
                         <TableCell>Name</TableCell>
                         <TableCell>Category</TableCell>
@@ -50,7 +50,7 @@ export default function Rooms() {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rows.map((row) => (
+                    {props.rows.map((row) => (
                         <TableRow key={row.id}>
                             <TableCell>{row.name}</TableCell>
                             <TableCell>{row.category}</TableCell>

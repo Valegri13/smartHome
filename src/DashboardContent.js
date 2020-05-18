@@ -4,7 +4,8 @@ import clsx from 'clsx';
 import SecuritySwitch from './SecuritySwitch'
 import LightsSwitches from './LightsSwitches'
 import RecentDevices from './RecentDevices';
-import SettingsSwitches from './SettingsSwitches'
+import DevicesSwitches from './DevicesSwitches'
+// import MusicCard from './MusicCard'
 
 const drawerWidth = 240
 const useStyles = makeStyles((theme) => ({
@@ -98,7 +99,7 @@ export function DashboardContent() {
 				<Grid container spacing={3}>
 					<Grid item xs={4}>
 						<Card>
-							<SettingsSwitches />
+							<DevicesSwitches />
 						</Card>
 					</Grid>
 					{/* SecuritySwitch */}
@@ -117,6 +118,11 @@ export function DashboardContent() {
 						<Paper className={classes.paper}>
 							<RecentDevices />
 						</Paper>
+					</Grid> */}
+					{/* <Grid item xs={4}>
+						<Card>
+							<MusicCard />
+						</Card>
 					</Grid> */}
 				</Grid>
 			</Container>

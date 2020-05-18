@@ -103,6 +103,23 @@ export default function RoomsPage() {
     };
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
+    function createData(id, name, category, status) {
+        return { id, name, category, status };
+    }
+
+    const rows = [
+        createData(0, 'Door', 'Lock', 'active'),
+        createData(1, 'Window', 'Lock', 'active'),
+        createData(2, 'Lamp', 'Light', 'disabled'),
+    ];
+
+
+    const rows1 = [
+        createData(0, 'Door', 'Lock', 'active'),
+        createData(1, 'Window', 'Lock', 'active'),
+        createData(2, '213421', 'Lock', 'disabled'),
+    ];
+
     return (
         <main className={classes.content}>
             <div className={classes.appBarSpacer} />
@@ -112,16 +129,22 @@ export default function RoomsPage() {
                     {/* Devices */}
                     <Grid item xs={12}>
                         <Paper className={classes.paper}>
-                            <Title>
-                                <Typography variant='h5' align='left'>Living Room</Typography>
-                            </Title>
-                            <Rooms />
+                            <Grid container direction="row" justify="space-between">
+                                <Title>
+                                    <Typography variant='h5' align='left'>Living Room</Typography>
+                                </Title>
+                                <Button variant='contained' color="primary">Add device</Button>
+                            </Grid>
+                            <Rooms rows={rows} />
                         </Paper>
                         <Paper className={classes.paper} style={{ marginTop: "2%" }}>
-                            <Title>
-                                <Typography variant='h5' align='left'>Kitchen</Typography>
-                            </Title>
-                            <Rooms />
+                            <Grid container direction="row" justify="space-between">
+                                <Title>
+                                    <Typography variant='h5' align='left'>Kitchen</Typography>
+                                </Title>
+                                <Button variant='contained' color="primary">Add device</Button>
+                            </Grid>
+                            <Rooms rows={rows1} />
                         </Paper>
                     </Grid>
                 </Grid>
