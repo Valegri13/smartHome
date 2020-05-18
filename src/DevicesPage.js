@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Devices from './Devices'
 import Button from "@material-ui/core/Button"
+import Form from './Form.js'
 
 
 const drawerWidth = 240;
@@ -110,6 +111,11 @@ export default function DevicesPage() {
                     <Grid item xs={12}>
                         <Paper className={classes.paper}>
                             <Devices />
+                        </Paper>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Paper className={classes.paper}>
+                            <Form />
                         </Paper>
                     </Grid>
                 </Grid>
