@@ -1,28 +1,13 @@
 import React from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Drawer from '@material-ui/core/Drawer';
-import Box from '@material-ui/core/Box';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems } from './listItems';
-import Deposits from './Deposits';
-import Orders from './Orders';
-import Devices from './Devices'
 import Rooms from './Rooms';
 import Title from './Title';
+import Button from '@material-ui/core/Button'
 
 
 
@@ -123,14 +108,19 @@ export default function RoomsPage() {
             <div className={classes.appBarSpacer} />
             <Container maxWidth="lg" className={classes.container}>
                 <Grid container spacing={3}>
+                    <Button variant="contained" color="primary">Add room</Button>
                     {/* Devices */}
                     <Grid item xs={12}>
                         <Paper className={classes.paper}>
-                            <Title>Living Room</Title>
+                            <Title>
+                                <Typography variant='h5' align='left'>Living Room</Typography>
+                            </Title>
                             <Rooms />
                         </Paper>
                         <Paper className={classes.paper} style={{ marginTop: "2%" }}>
-                            <Title>Kitchen</Title>
+                            <Title>
+                                <Typography variant='h5' align='left'>Kitchen</Typography>
+                            </Title>
                             <Rooms />
                         </Paper>
                     </Grid>

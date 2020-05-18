@@ -5,6 +5,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Devices from './Devices'
+import Button from "@material-ui/core/Button"
 
 
 const drawerWidth = 240;
@@ -104,6 +105,7 @@ export default function DevicesPage() {
             <div className={classes.appBarSpacer} />
             <Container maxWidth="lg" className={classes.container}>
                 <Grid container spacing={3}>
+                    <Button variant="contained" color="primary" align="right">Add device</Button>
                     {/* Devices */}
                     <Grid item xs={12}>
                         <Paper className={classes.paper}>

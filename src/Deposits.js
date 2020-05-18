@@ -17,9 +17,9 @@ export default function Deposits() {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <Title>Охрана</Title>
-      <Button>Включить охрану</Button>
-      <Button>Выключить охрану</Button>
+      <Title>Securtiy</Title>
+      <Button>Enable security</Button>
+      <Button>Disable security</Button>
     </React.Fragment >
   );
 }

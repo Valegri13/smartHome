@@ -5,8 +5,9 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import { Button } from '@material-ui/core';
-// import Title from './Title';
+import { Button, Typography } from '@material-ui/core';
+import Title from './Title';
+import Switch from '@material-ui/core/Switch';
 
 // Generate Order Data
 function createData(id, name, category, status) {
@@ -33,14 +34,18 @@ export default function Devices() {
     const classes = useStyles();
     return (
         <React.Fragment>
-            {/* <Title>Devices</Title> */}
+            <Title>
+                <Typography variant='h5' align='left'>Devices List
+                </Typography>
+            </Title>
             <Table size="small">
                 <TableHead>
                     <TableRow>
                         <TableCell>Name</TableCell>
                         <TableCell>Category</TableCell>
                         <TableCell>Status</TableCell>
-                        <TableCell></TableCell>
+                        <TableCell>
+                        </TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -49,7 +54,7 @@ export default function Devices() {
                             <TableCell>{row.name}</TableCell>
                             <TableCell>{row.category}</TableCell>
                             <TableCell>{row.status}</TableCell>
-                            <TableCell><Button>Enable</Button></TableCell>
+                            <TableCell><Switch></Switch></TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

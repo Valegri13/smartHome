@@ -1,9 +1,10 @@
 import React from 'react';
-import { makeStyles, Container, Grid, Paper } from '@material-ui/core';
+import { makeStyles, Container, Grid, Paper, Card } from '@material-ui/core';
 import clsx from 'clsx';
-import Deposits from './Deposits';
-
+import SecuritySwitch from './SecuritySwitch'
+import LightsSwitches from './LightsSwitches'
 import RecentDevices from './RecentDevices';
+import SettingsSwitches from './SettingsSwitches'
 
 const drawerWidth = 240
 const useStyles = makeStyles((theme) => ({
@@ -95,18 +96,28 @@ export function DashboardContent() {
 			<div className={classes.appBarSpacer} />
 			<Container maxWidth="lg" className={classes.container}>
 				<Grid container spacing={3}>
-					{/* Recent Deposits */}
-					<Grid item xs={12} md={4} lg={3}>
-						<Paper className={fixedHeightPaper}>
-							<Deposits />
-						</Paper>
+					<Grid item xs={4}>
+						<Card>
+							<SettingsSwitches />
+						</Card>
 					</Grid>
-					{/* Recent devices */}
-					<Grid item xs={12}>
+					{/* SecuritySwitch */}
+					<Grid item xs={4}>
+						<Card>
+							<SecuritySwitch />
+						</Card>
+					</Grid>
+					{/* LightsSwitches */}
+					<Grid item xs={4}>
+						<Card>
+							<LightsSwitches />
+						</Card>
+					</Grid>
+					{/* <Grid item xs={12}>
 						<Paper className={classes.paper}>
 							<RecentDevices />
 						</Paper>
-					</Grid>
+					</Grid> */}
 				</Grid>
 			</Container>
 		</main>
