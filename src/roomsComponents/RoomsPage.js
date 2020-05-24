@@ -5,12 +5,11 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Rooms from './Rooms';
-import Title from './Title';
+import Rooms from '../roomsComponents/Rooms';
+import Title from '../Title';
 import Button from '@material-ui/core/Button'
-import Dialog from './AddDeviceButton'
-import AddRoomButton from './AddRoomButton'
-
+import Dialog from '../devicesComponents/AddDeviceButton'
+import AddRoomButton from '../roomsComponents/AddRoomButton'
 
 
 const drawerWidth = 240;

@@ -1,10 +1,10 @@
 import React from 'react';
 import { makeStyles, Container, Grid, Paper, Card } from '@material-ui/core';
 import clsx from 'clsx';
-import SecuritySwitch from './SecuritySwitch'
-import LightsSwitches from './LightsSwitches'
-import RecentDevices from './RecentDevices';
-import DevicesSwitches from './DevicesSwitches'
+import SecuritySwitch from '../switchesComponents/SecuritySwitch'
+import LightsSwitches from '../switchesComponents/LightsSwitches'
+import RecentDevices from '../devicesComponents/RecentDevices';
+import DevicesSwitches from '../devicesComponents/DevicesSwitches'
 // import MusicCard from './MusicCard'
 
 const drawerWidth = 240

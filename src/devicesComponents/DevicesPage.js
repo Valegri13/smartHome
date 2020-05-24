@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Devices from './Devices'
 import Button from "@material-ui/core/Button"
-import Form from './Form.js'
+import Form from '../Form'
 import AddDeviceButton from './AddDeviceButton'
 
 

@@ -13,11 +13,11 @@ import Badge from '@material-ui/core/Badge';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { MainListItems } from './listItems';
+import { MainListItems } from '../listItems';
 import { DashboardContent } from './DashboardContent';
 import { Switch, Route } from 'react-router';
-import DevicesPage from './DevicesPage'
-import RoomsPage from './RoomsPage';
+import DevicesPage from '../devicesComponents/DevicesPage'
+import RoomsPage from '../roomsComponents/RoomsPage';
 
 const drawerWidth = 240;
 

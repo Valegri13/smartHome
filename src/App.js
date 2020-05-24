@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Dashboard from './Dashboard';
+import Dashboard from './dashboardComponents/Dashboard';
 import {
   BrowserRouter as Router,
   Switch,

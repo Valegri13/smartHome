@@ -6,7 +6,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import { Button, Typography } from '@material-ui/core';
-import Title from './Title';
+import Title from '../Title';
 import Switch from '@material-ui/core/Switch';
 
 
