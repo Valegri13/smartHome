@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default function FormDialog() {
     const [open, setOpen] = React.useState(false);
-
     const handleClickOpen = () => {
         setOpen(true);
     };
@@ -39,7 +38,10 @@ export default function FormDialog() {
                         type="name"
                         variant="outlined"
                         fullWidth
-                    />
+                        select
+                    >
+                        {}
+                    </TextField>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose} color="primary" variant="contained">

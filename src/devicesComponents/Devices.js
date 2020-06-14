@@ -1,38 +1,31 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, {useEffect} from 'react';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import { Button, Typography } from '@material-ui/core';
+import {Typography} from '@material-ui/core';
 import Title from '../Title';
 import Switch from '@material-ui/core/Switch';
+import {useSelector, useDispatch} from 'react-redux';
+import { addDevices, changeStatus } from '../Actions/DevicesActions';
 
+export default function Devices(props) {
+    const devices = useSelector(state => state.devices);
+    const devicesCatagory = useSelector(state => state.devicesCategory);
+    const roomCategorys = useSelector(state => state.roomCategorys);
+    const dispatch = useDispatch();
 
-// Generate Order Data
-function createData(id, name, category, status) {
-    return { id, name, category, status };
-}
-
-const rows = [
-    createData(0, 'Door', 'Lock', 'active'),
-    createData(1, 'Window', 'Lock', 'active'),
-    createData(2, 'Lamp', 'Light', 'disabled'),
-];
-
-// function preventDefault(event) {
-//     event.preventDefault();
-// }
-
-const useStyles = makeStyles((theme) => ({
-    seeMore: {
-        marginTop: theme.spacing(3),
-    },
-}));
-
-export default function Devices() {
-    const classes = useStyles();
+    useEffect(() => {
+        const socket = new WebSocket('ws://localhost:3000/userDevices');
+        socket.onmessage = (e) => {
+            dispatch(addDevices(JSON.parse(e.data)));
+            console.log(JSON.parse(e.data));
+        }
+    }, [])
+    const changeSomeStatus = id => {
+        dispatch(changeStatus(id));
+    }
     return (
         <React.Fragment>
             <Title>
@@ -44,18 +37,25 @@ export default function Devices() {
                     <TableRow>
                         <TableCell>Name</TableCell>
                         <TableCell>Category</TableCell>
+                        <TableCell>Room</TableCell>
                         <TableCell>Status</TableCell>
-                        <TableCell>
-                        </TableCell>
+                        <TableCell></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rows.map((row) => (
-                        <TableRow key={row.id}>
-                            <TableCell>{row.name}</TableCell>
-                            <TableCell>{row.category}</TableCell>
-                            <TableCell>{row.status}</TableCell>
-                            <TableCell><Switch></Switch></TableCell>
+                    {devices.map((device) => (
+                        <TableRow key={device.id}>
+                            <TableCell>{device.name}</TableCell>
+                            <TableCell>{devicesCatagory
+                                    .find(item => item.id === device.deviceID)
+                                    .name}</TableCell>
+                            <TableCell>{roomCategorys
+                                    .find(item => item.id === device.roomID)
+                                    .name}</TableCell>
+                            <TableCell>{device.status}</TableCell>
+                            <TableCell>
+                                <Switch checked={device.status == 'active' ? true : false} onChange={() => {changeSomeStatus(device.id)}}></Switch>
+                            </TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

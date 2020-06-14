@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -8,6 +8,7 @@ import Devices from './Devices'
 import Button from "@material-ui/core/Button"
 import Form from '../Form'
 import AddDeviceButton from './AddDeviceButton'
+import { useDispatch } from 'react-redux';
 
 
 const drawerWidth = 240;
@@ -91,16 +92,9 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+
 export default function DevicesPage() {
     const classes = useStyles();
-    const [open, setOpen] = React.useState(true);
-    const handleDrawerOpen = () => {
-        setOpen(true);
-    };
-    const handleDrawerClose = () => {
-        setOpen(false);
-    };
-    const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
     return (
         <main className={classes.content}>
@@ -110,7 +104,6 @@ export default function DevicesPage() {
                     <Grid item xs={3}>
                         <AddDeviceButton />
                     </Grid>
-                    {/* Devices */}
                     <Grid item xs={12}>
                         <Paper className={classes.paper}>
                             <Devices />

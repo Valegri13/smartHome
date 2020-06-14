@@ -7,12 +7,26 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import SignIn from './Auth/SignIn';
+import { PrivatRoute } from './Auth/PrivatRoute';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import { allReducers } from './Reducers/allReducers';
+const store = createStore(
+	allReducers,
+	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Dashboard />
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <Switch>
+            <Route path='/sign_in' component={SignIn} />
+            <PrivatRoute path='/' component={Dashboard} />
+          </Switch>
+        </Router>
+      </Provider>
     </div>
   );
 }

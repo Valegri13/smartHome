@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -18,6 +18,11 @@ import { DashboardContent } from './DashboardContent';
 import { Switch, Route } from 'react-router';
 import DevicesPage from '../devicesComponents/DevicesPage'
 import RoomsPage from '../roomsComponents/RoomsPage';
+import { PrivatRoute } from '../Auth/PrivatRoute';
+import SignIn from '../Auth/SignIn';
+import { useDispatch } from 'react-redux';
+import { addDevicesCategory } from '../Actions/DevicesCategoryActions';
+import { addRoomCategorys } from '../Actions/RoomCategoryActions';
 
 const drawerWidth = 240;
 
@@ -106,9 +111,41 @@ export default function Dashboard() {
   const handleDrawerOpen = () => {
     setOpen(true);
   };
+  const dispatch = useDispatch();
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const getDevicesCategory = () => {
+    fetch('http://localhost:3000/devicesCatagory/getDevices', {
+        method: 'GET',
+        headers: {
+          'Authorization' : `${localStorage.getItem('accessToken')}`
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        dispatch(addDevicesCategory(data));
+    })
+  }
+  const getRoomCategorys = () => {
+    fetch('http://localhost:3000/roomsCatagory/getRooms', {
+      method: 'GET',
+      headers: {
+        'Authorization' : `${localStorage.getItem('accessToken')}`
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+        dispatch(addRoomCategorys(data));
+    })
+  }
+
+  useEffect(() => {
+    getDevicesCategory();
+    getRoomCategorys();
+  }, [])
 
   return (
     <div className={classes.root}>
@@ -127,11 +164,6 @@ export default function Dashboard() {
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             Dashboard
           </Typography>
-          {/* <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
-            </Badge>
-          </IconButton> */}
         </Toolbar>
       </AppBar>
       <Drawer
@@ -152,9 +184,10 @@ export default function Dashboard() {
         </List>
       </Drawer>
       <Switch>
-        <Route exact path='/' component={DashboardContent} />
-        <Route exact path='/devices' component={DevicesPage} />
-        <Route exact path='/rooms' component={RoomsPage} />
+        <Route path='/sign_in' component={SignIn} />
+        <PrivatRoute exact path='/' component={DashboardContent} />
+        <PrivatRoute exact path='/devices' component={DevicesPage} />
+        <PrivatRoute exact path='/rooms' component={RoomsPage} />
       </Switch>
     </div>
   );
